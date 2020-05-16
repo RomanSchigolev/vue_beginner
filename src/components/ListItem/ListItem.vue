@@ -13,7 +13,9 @@
     </div>
     <button
       class="list__item__btn"
-      @click="sendDataToParent">Add to cart</button>
+      @click="sendDataToParent">
+      Add to cart
+    </button>
   </li>
 </template>
 
