@@ -1,12 +1,15 @@
 <template>
-  <ul class="list">
-    <ListItem
-      v-for="product in PRODUCTS"
-      :key="product.article"
-      v-bind:product_data="product"
-      @sendArticle="showProductArticleToConsole"
-    />
-  </ul>
+  <div class="list">
+    <h2>Product List</h2>
+    <ul class="list__shop">
+      <ListItem
+        v-for="product in PRODUCTS"
+        :key="product.article"
+        v-bind:product_data="product"
+        @addToCart="itemInToCart"
+      />
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -30,10 +33,11 @@
     },
     methods: {
       ...mapActions([
-        "GET_PRODUCTS"
+        "GET_PRODUCTS",
+        "ADD_TO_CART"
       ]),
-      showProductArticleToConsole(data) {
-        console.log(data);
+      itemInToCart(item) {
+        this.ADD_TO_CART(item);
       }
     },
     mounted() {
@@ -43,7 +47,7 @@
 </script>
 
 <style lang="scss">
-  .list {
+  .list__shop {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

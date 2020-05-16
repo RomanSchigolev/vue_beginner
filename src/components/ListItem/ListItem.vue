@@ -13,7 +13,7 @@
     </div>
     <button
       class="list__item__btn"
-      @click="sendDataToParent">
+      @click="addToCart">
       Add to cart
     </button>
   </li>
@@ -31,9 +31,8 @@
       }
     },
     methods: {
-      sendDataToParent() {
-        this.$emit('sendArticle', this.product_data.article);
-        // первый аргумент - то как будет называться метод у родителя, второй - что хотим передать
+      addToCart() {
+        this.$emit("addToCart", this.product_data);
       }
     }
   }
