@@ -62,10 +62,10 @@
       top: 0;
       right: 0;
       padding: 15px;
-      border: 1px solid #eaeaea;
+      border: 1px solid $forBackgroundAndBorder;
       background-color: transparent;
       cursor: pointer;
-      font-family: Avenir, Helvetica, Arial, sans-serif;
+      font-family: $mainFont;
       font-size: 16px;
     }
   }

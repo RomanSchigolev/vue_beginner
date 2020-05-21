@@ -17,7 +17,7 @@
 
 <style lang="scss">
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: $mainFont;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;

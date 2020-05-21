@@ -11,9 +11,7 @@ export default new Vuex.Store({
     cart: []
   },
   mutations: { // можно менять состояния в state. mutations - синхронны
-    SET_PRODUCTS: (state, products) => {
-      state.products = products;
-    },
+    SET_PRODUCTS: (state, products) => state.products = products,
     SET_CART: (state, product) => {
       let isProductExist = false;
       if (state.cart.length) {
@@ -30,9 +28,11 @@ export default new Vuex.Store({
         state.cart.push(product);
       }
     },
-    DELETE_ITEM: (state, index) => {
-      state.cart.splice(index, 1);
-    }
+    DELETE_ITEM: (state, index) => state.cart.splice(index, 1),
+    DECREMENT: (state, index) => --state.cart[index].quantity < 1 && state.cart.splice(index, 1),
+    INCREMENT: (state, index) => state.cart[index].quantity++
+
+
   },
   actions: { // actions - ассинхронны
     GET_PRODUCTS({commit}) {
@@ -47,10 +47,16 @@ export default new Vuex.Store({
       })
     },
     ADD_TO_CART({commit}, product) {
-      commit("SET_CART", product)
+      commit("SET_CART", product);
     },
     DELETE_FROM_CART({commit}, index) {
       commit("DELETE_ITEM", index);
+    },
+    DECREMENT_QUANTITY({commit}, index) {
+      commit("DECREMENT", index);
+    },
+    INCREMENT_QUANTITY({commit}, index) {
+      commit("INCREMENT", index);
     }
   },
   getters: { // для получения данных из state

@@ -13,8 +13,14 @@
         :key="cart_item.article"
         :cart_data_item="cart_item"
         @deleteItem="deleteFromCart(index)"
+        @decrement="decrementQuantity(index)"
+        @increment="incrementQuantity(index)"
       />
     </ul>
+    <div class="cart__total">
+      <span class="total__title">Total: </span>
+      <span>{{cartTotal}} руб.</span>
+    </div>
   </div>
 </template>
 
@@ -36,12 +42,25 @@
         }
       }
     },
+    computed: {
+      cartTotal() {
+        return this.cart_data_list.reduce((res, item) => res + item.price * item.quantity, 0);
+      }
+    },
     methods: {
       ...mapActions([
-        "DELETE_FROM_CART"
+        "DELETE_FROM_CART",
+        "DECREMENT_QUANTITY",
+        "INCREMENT_QUANTITY"
       ]),
       deleteFromCart(index) {
         this.DELETE_FROM_CART(index);
+      },
+      decrementQuantity(index) {
+        return this.DECREMENT_QUANTITY(index);
+      },
+      incrementQuantity(index) {
+        return this.INCREMENT_QUANTITY(index);
       }
     }
   }
@@ -63,10 +82,10 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid #eaeaea;
+      border: 1px solid $forBackgroundAndBorder;
       background-color: transparent;
       cursor: pointer;
-      font-family: Avenir, Helvetica, Arial, sans-serif;
+      font-family: $mainFont;
       font-size: 20px;
     }
 
@@ -77,6 +96,25 @@
         font-size: 25px;
         font-weight: bold;
       }
+    }
+
+    &__total {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #26ae68;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .total__title {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-right: 10px;
     }
   }
 </style>

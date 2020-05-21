@@ -62,5 +62,16 @@
     &__title, &__price {
       margin-bottom: 10px;
     }
+
+    &__btn {
+      background-color: $forBackgroundAndBorder;
+      color: #000000;
+      border: none;
+      font-family: $mainFont;
+      padding: 8px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 7px;
+    }
   }
 </style>

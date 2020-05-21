@@ -12,7 +12,19 @@
       <span>{{cart_data_item.price}} руб.</span>
     </div>
     <div class="cart__item__quantity">
+      <button
+        class="quantity--decrement quantity__button"
+        type="button"
+        @click="decrementQuantity"
+      >-
+      </button>
       <span>Quantity: {{cart_data_item.quantity}}</span>
+      <button
+        class="quantity--increment quantity__button"
+        type="button"
+        @click="incrementQuantity"
+      >+
+      </button>
     </div>
     <button @click="deleteItem">
       Delete
@@ -21,6 +33,7 @@
 </template>
 
 <script>
+  import {mapActions} from "vuex";
   export default {
     name: "CartItem",
     props: {
@@ -34,6 +47,12 @@
     methods: {
       deleteItem() {
         this.$emit("deleteItem");
+      },
+      decrementQuantity() {
+        this.$emit("decrement");
+      },
+      incrementQuantity() {
+        this.$emit("increment");
       }
     }
   }
@@ -61,6 +80,26 @@
 
     &__title, &__price {
       margin-bottom: 10px;
+    }
+
+    &__quantity {
+      display: flex;
+      align-items: center;
+
+      & > .quantity__button {
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      & > .quantity--decrement {
+        margin-right: 10px;
+      }
+
+      & > .quantity--increment {
+        margin-left: 10px;
+      }
     }
   }
 </style>
