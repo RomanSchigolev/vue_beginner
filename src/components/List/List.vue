@@ -1,5 +1,8 @@
 <template>
   <div class="list">
+    <router-link :to="{name: 'cart', params: {cart_data_list: CART_LIST}}">
+      <button type="button" class="list__toCart">Cart: {{CART_LIST.length}}</button>
+    </router-link>
     <h2>Product List</h2>
     <ul class="list__shop">
       <ListItem
@@ -22,13 +25,12 @@
       ListItem
     },
     data() {
-      return {
-
-      }
+      return {}
     },
     computed: {
       ...mapGetters([
-        "PRODUCTS"
+        "PRODUCTS",
+        "CART_LIST"
       ])
     },
     methods: {
@@ -47,10 +49,24 @@
 </script>
 
 <style lang="scss">
-  .list__shop {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+  .list {
+    &__shop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__toCart {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 15px;
+      border: 1px solid #eaeaea;
+      background-color: transparent;
+      cursor: pointer;
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      font-size: 16px;
+    }
   }
 </style>

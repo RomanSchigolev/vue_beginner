@@ -35,9 +35,6 @@
       deleteItem() {
         this.$emit("deleteItem");
       }
-    },
-    mounted() {
-      this.$set(this.cart_data_item, "quantity", 1);
     }
   }
 </script>

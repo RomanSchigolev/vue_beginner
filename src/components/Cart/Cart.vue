@@ -1,6 +1,12 @@
 <template>
   <div class="cart">
+    <router-link :to="{name: 'catalog'}">
+      <button type="button" class="cart__toProductList">&times;</button>
+    </router-link>
     <h2>Cart</h2>
+    <div class="cart__warning" v-if="!cart_data_list.length">
+      <span>Your products are not in the cart</span>
+    </div>
     <ul class="cart__list">
       <card-item
         v-for="(cart_item, index) in cart_data_list"
@@ -48,6 +54,29 @@
       flex-wrap: nowrap;
       justify-content: space-between;
       align-items: center;
+    }
+
+    &__toProductList {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #eaeaea;
+      background-color: transparent;
+      cursor: pointer;
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+      font-size: 20px;
+    }
+
+    &__warning {
+      text-align: center;
+
+      & span {
+        font-size: 25px;
+        font-weight: bold;
+      }
     }
   }
 </style>

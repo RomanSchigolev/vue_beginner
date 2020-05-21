@@ -2,7 +2,7 @@
   <li class="list__item">
     <div class="list__item__img">
       <img
-        :src="require(`../../assets/img/${product_data.image}`)"
+        :src="require(`@/assets/img/${product_data.image}`)"
         :alt="`${product_data.name}`">
     </div>
     <div class="list__item__title">
@@ -34,6 +34,9 @@
       addToCart() {
         this.$emit("addToCart", this.product_data);
       }
+    },
+    mounted() {
+      this.$set(this.product_data, "quantity", 1);
     }
   }
 </script>
