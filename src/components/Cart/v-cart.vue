@@ -1,14 +1,20 @@
 <template>
   <div class="cart">
     <router-link :to="{name: 'catalog'}">
-      <button type="button" class="cart__toProductList">&times;</button>
+      <button
+        type="button"
+        class="cart__toProductList"
+      >&times;
+      </button>
     </router-link>
     <h2>Cart</h2>
-    <div class="cart__warning" v-if="!cart_data_list.length">
+    <div
+      class="cart__warning"
+      v-if="!cart_data_list.length">
       <span>Your products are not in the cart</span>
     </div>
     <ul class="cart__list">
-      <card-item
+      <v-cart-item
         v-for="(cart_item, index) in cart_data_list"
         :key="cart_item.article"
         :cart_data_item="cart_item"
@@ -25,14 +31,14 @@
 </template>
 
 <script>
-  import CardItem from "./CartItem";
+  import vCartItem from "./v-cart-item";
 
   import {mapActions} from "vuex";
 
   export default {
-    name: "Cart",
+    name: "v-cart",
     components: {
-      CardItem
+      vCartItem
     },
     props: {
       cart_data_list: {

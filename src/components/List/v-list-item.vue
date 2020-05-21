@@ -13,15 +13,15 @@
     </div>
     <button
       class="list__item__btn"
-      @click="addToCart">
-      Add to cart
+      @click="addToCart"
+    >Add to cart
     </button>
   </li>
 </template>
 
 <script>
   export default {
-    name: "ListItem",
+    name: "v-list-item",
     props: {
       product_data: {
         type: Object,

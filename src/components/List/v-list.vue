@@ -1,11 +1,15 @@
 <template>
   <div class="list">
     <router-link :to="{name: 'cart', params: {cart_data_list: CART_LIST}}">
-      <button type="button" class="list__toCart">Cart: {{CART_LIST.length}}</button>
+      <button
+        type="button"
+        class="list__toCart"
+      >Cart: {{CART_LIST.length}}
+      </button>
     </router-link>
     <h2>Product List</h2>
     <ul class="list__shop">
-      <ListItem
+      <v-list-item
         v-for="product in PRODUCTS"
         :key="product.article"
         v-bind:product_data="product"
@@ -16,13 +20,13 @@
 </template>
 
 <script>
-  import ListItem from "../ListItem/ListItem";
+  import vListItem from "./v-list-item";
   import {mapActions, mapGetters} from "vuex";
 
   export default {
-    name: "list",
+    name: "v-list",
     components: {
-      ListItem
+      vListItem
     },
     data() {
       return {}

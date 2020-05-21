@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Catalog from "../components/List/List";
-import Cart from "../components/Cart/Cart";
+import Catalog from "../components/List/v-list";
+import Cart from "../components/Cart/v-cart";
 
 Vue.use(Router);
 export default new Router({

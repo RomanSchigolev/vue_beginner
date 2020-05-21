@@ -33,9 +33,8 @@
 </template>
 
 <script>
-  import {mapActions} from "vuex";
   export default {
-    name: "CartItem",
+    name: "v-cart-item",
     props: {
       cart_data_item: {
         type: Object,

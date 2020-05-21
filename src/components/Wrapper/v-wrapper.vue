@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: "Wrapper",
+    name: "v-wrapper",
     components: {   // Дети
     },
     props: { // Не персональные данные компонента (то, что будет приходить из компонента-родителя)
