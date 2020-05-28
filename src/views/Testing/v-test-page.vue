@@ -1,6 +1,11 @@
 <template>
-  <v-select-widget>
-  </v-select-widget>
+  <div>
+    <v-select-widget
+      @select="optionSelected"
+    >
+    </v-select-widget>
+    <p>{{selected}}</p>
+  </div>
 </template>
 
 <script>
@@ -10,6 +15,16 @@
     name: "v-test-page",
     components: {
       vSelectWidget
+    },
+    data() {
+      return {
+        selected: ""
+      }
+    },
+    methods: {
+      optionSelected(option) {
+        this.selected = option.name;
+      }
     }
   }
 </script>

@@ -8,8 +8,8 @@
         <v-select
           :options="options"
           label="name"
-          :reduce="country => country.value"
           placeholder="Chosen country"
+          @input="selectOption"
         >
         </v-select>
       </div>
@@ -34,7 +34,14 @@
           {name: "China", value: 4},
           {name: "Germany", value: 5},
           {name: "Spain", value: 6}
-        ]
+        ],
+      }
+    },
+    methods: {
+      selectOption(option) {
+        if (option) {
+          this.$emit("select", option);
+        }
       }
     }
   }
@@ -45,10 +52,12 @@
     max-width: 400px;
     margin: 0 auto;
   }
-  .vs__search{
+
+  .vs__search {
     font-family: inherit;
     text-transform: uppercase;
   }
+
   .vs__open-indicator {
     fill: $accentColor;
   }
