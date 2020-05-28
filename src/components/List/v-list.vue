@@ -2,16 +2,22 @@
   <section class="section section__list">
     <div class="container">
       <div class="list">
+        <div class="section__title">
+          <h1>Product List</h1>
+        </div>
+        <div
+          class="cart__warning"
+          v-if="!PRODUCTS.length">
+          <span>There are no products yet</span>
+        </div>
         <router-link :to="{name: 'cart', params: {cart_data_list: CART_LIST}}">
           <button
             type="button"
             class="list__toCart"
+            v-if="CART_LIST.length"
           >Cart: {{CART_LIST.length}}
           </button>
         </router-link>
-        <div class="section__title">
-          <h1>Product List</h1>
-        </div>
         <ul class="list__shop">
           <v-list-item
             v-for="product in PRODUCTS"
