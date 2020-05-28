@@ -3,6 +3,7 @@ import Router from "vue-router"
 
 import Home from "@/views/Home/v-home-page"
 import Shop from "@/views/Shop/v-shop-page"
+import Test from "@/views/Testing/v-test-page"
 
 import Cart from "@/components/Cart/v-cart"
 
@@ -25,6 +26,11 @@ export default new Router({
       name: "cart",
       component: Cart,
       props: true
+    },
+    {
+      path: "/testing",
+      name: "testing",
+      component: Test
     }
   ]
 });
