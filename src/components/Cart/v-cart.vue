@@ -1,33 +1,37 @@
 <template>
-  <div class="cart">
-    <router-link :to="{name: 'catalog'}">
-      <button
-        type="button"
-        class="cart__toProductList"
-      >&times;
-      </button>
-    </router-link>
-    <h2>Cart</h2>
-    <div
-      class="cart__warning"
-      v-if="!cart_data_list.length">
-      <span>Your products are not in the cart</span>
+  <section class="section section__cart">
+    <div class="container">
+      <router-link :to="{name: 'shop'}">
+        <button
+          type="button"
+          class="cart__toProductList"
+        >&times;
+        </button>
+      </router-link>
+      <div class="section__title">
+        <h1>Cart</h1>
+      </div>
+      <div
+        class="cart__warning"
+        v-if="!cart_data_list.length">
+        <span>Your products are not in the cart</span>
+      </div>
+      <ul class="cart__list">
+        <v-cart-item
+          v-for="(cart_item, index) in cart_data_list"
+          :key="cart_item.article"
+          :cart_data_item="cart_item"
+          @deleteItem="deleteFromCart(index)"
+          @decrement="decrementQuantity(index)"
+          @increment="incrementQuantity(index)"
+        />
+      </ul>
+      <div class="cart__total">
+        <span class="total__title">Total: </span>
+        <span>{{cartTotal}} руб.</span>
+      </div>
     </div>
-    <ul class="cart__list">
-      <v-cart-item
-        v-for="(cart_item, index) in cart_data_list"
-        :key="cart_item.article"
-        :cart_data_item="cart_item"
-        @deleteItem="deleteFromCart(index)"
-        @decrement="decrementQuantity(index)"
-        @increment="incrementQuantity(index)"
-      />
-    </ul>
-    <div class="cart__total">
-      <span class="total__title">Total: </span>
-      <span>{{cartTotal}} руб.</span>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -73,54 +77,55 @@
 </script>
 
 <style lang="scss">
-  .cart {
+  .cart__list {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    &__list {
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-    }
+  .cart__toProductList {
+    position: fixed;
+    top: 8vmax;
+    right: 1vmax;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid $forBackgroundAndBorder;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: $mainFont;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__toProductList {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid $forBackgroundAndBorder;
-      background-color: transparent;
-      cursor: pointer;
-      font-family: $mainFont;
-      font-size: 20px;
-    }
+  .cart__warning {
+    text-align: center;
 
-    &__warning {
-      text-align: center;
-
-      & span {
-        font-size: 25px;
-        font-weight: bold;
-      }
-    }
-
-    &__total {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: #26ae68;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
-
-    .total__title {
-      text-transform: uppercase;
+    & span {
+      font-size: 25px;
       font-weight: bold;
-      margin-right: 10px;
     }
   }
+
+  .cart__total {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #26ae68;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+  }
+
+  .total__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
 </style>

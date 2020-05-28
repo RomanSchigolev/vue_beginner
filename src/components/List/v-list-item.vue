@@ -9,7 +9,7 @@
       <span>{{product_data.name}}</span>
     </div>
     <div class="list__item__price">
-      <span>{{product_data.price}} руб.</span>
+      <span>{{Math.floor(product_data.price)}} руб.</span>
     </div>
     <button
       class="list__item__btn"

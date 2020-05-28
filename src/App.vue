@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <v-wrapper/>
+    <v-header/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-  import vWrapper from "./components/Wrapper/v-wrapper";
+  import vHeader from "@/components/Header/v-header";
 
   export default {
     name: "app",
     components: {
-      vWrapper
+      vHeader
     }
   }
 </script>
@@ -20,9 +23,6 @@
     font-family: $mainFont;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: #2c3e50;
   }
 </style>

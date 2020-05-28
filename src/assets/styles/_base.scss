@@ -4,8 +4,45 @@
   box-sizing: border-box;
 }
 
+body {
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 0.6vmax;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $accentColor;
+}
+
 ul, li {
   list-style: none;
 }
 
+.container {
+  max-width: 86vw;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.section {
+  margin: 4vmax 0;
+
+  &__title {
+    margin-bottom: 3vmax;
+    text-align: center;
+
+    & h1 {
+      text-transform: uppercase;
+      font-size: 3vmax;
+    }
+  }
+
+}
 

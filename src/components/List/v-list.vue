@@ -1,22 +1,28 @@
 <template>
-  <div class="list">
-    <router-link :to="{name: 'cart', params: {cart_data_list: CART_LIST}}">
-      <button
-        type="button"
-        class="list__toCart"
-      >Cart: {{CART_LIST.length}}
-      </button>
-    </router-link>
-    <h2>Product List</h2>
-    <ul class="list__shop">
-      <v-list-item
-        v-for="product in PRODUCTS"
-        :key="product.article"
-        v-bind:product_data="product"
-        @addToCart="itemInToCart"
-      />
-    </ul>
-  </div>
+  <section class="section section__list">
+    <div class="container">
+      <div class="list">
+        <router-link :to="{name: 'cart', params: {cart_data_list: CART_LIST}}">
+          <button
+            type="button"
+            class="list__toCart"
+          >Cart: {{CART_LIST.length}}
+          </button>
+        </router-link>
+        <div class="section__title">
+          <h1>Product List</h1>
+        </div>
+        <ul class="list__shop">
+          <v-list-item
+            v-for="product in PRODUCTS"
+            :key="product.article"
+            v-bind:product_data="product"
+            @addToCart="itemInToCart"
+          />
+        </ul>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -63,7 +69,7 @@
 
     &__toCart {
       position: fixed;
-      top: 0;
+      top: 8vmax;
       right: 0;
       padding: 15px;
       border: 1px solid $forBackgroundAndBorder;

@@ -1,8 +1,10 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from "vue"
+import Router from "vue-router"
 
-import Catalog from "../components/List/v-list";
-import Cart from "../components/Cart/v-cart";
+import Home from "@/views/Home/v-home-page"
+import Shop from "@/views/Shop/v-shop-page"
+
+import Cart from "@/components/Cart/v-cart"
 
 Vue.use(Router);
 export default new Router({
@@ -10,8 +12,13 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "catalog",
-      component: Catalog
+      name: "home",
+      component: Home
+    },
+    {
+      path: "/shop",
+      name: "shop",
+      component: Shop
     },
     {
       path: "/cart",
