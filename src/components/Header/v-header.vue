@@ -15,6 +15,7 @@
               <router-link
                 class="menu__link"
                 :to="menuItem.url"
+                exact-active-class="menu__link--active"
               >
                 {{menuItem.title}}
               </router-link>
@@ -80,7 +81,11 @@
       &:hover {
         color: $accentColor;
       }
-    }
 
+      &--active {
+        color: $accentColor;
+      }
+    }
   }
+
 </style>

@@ -4,8 +4,9 @@
       <div class="section__title">
         <h1>Input widget</h1>
       </div>
-      <div class="input">
+      <div class="section__content">
         <label for="input">
+          {{label}}
           <input type="text"
                  id="input"
                  :value="inputValue"
@@ -24,6 +25,10 @@
       inputValue: {
         type: String,
         default: ""
+      },
+      label: {
+        type: String,
+        default: ""
       }
     },
     methods: {
@@ -35,6 +40,10 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  .input {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
 </style>

@@ -4,7 +4,7 @@
       <div class="section__title">
         <h1>Select widget</h1>
       </div>
-      <div class="select">
+      <div class="section__content">
         <v-select
           :options="options"
           label="name"
