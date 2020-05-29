@@ -5,20 +5,28 @@
     >
     </v-select-widget>
     <p>{{selected}}</p>
+    <hr>
+    <v-text-field
+      v-model="val"
+    />
+    <p>{{val}}</p>
   </div>
 </template>
 
 <script>
-  import vSelectWidget from "@/components/Select/v-select-widget"
+  import vSelectWidget from "@/components/Widgets/Select/v-select-widget"
+  import vTextField from "@/components/Widgets/Input/v-text-field"
 
   export default {
     name: "v-test-page",
     components: {
-      vSelectWidget
+      vSelectWidget,
+      vTextField
     },
     data() {
       return {
-        selected: ""
+        selected: "",
+        val: ""
       }
     },
     methods: {

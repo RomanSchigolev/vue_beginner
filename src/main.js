@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 
 import "vue-select/src/scss/vue-select.scss";
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 import store from "./store";
 import router from "./router";
