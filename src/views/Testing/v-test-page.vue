@@ -12,7 +12,13 @@
     />
     <p>{{val}}</p>
     <hr>
-    <v-button/>
+    <v-button
+      @pressButton="clickBtn"
+      :isDisabled="false"
+      :isError="false"
+      :isSuccess="false"
+      isIconSetAfter="favorite"
+    />
   </div>
 </template>
 
@@ -37,6 +43,9 @@
     methods: {
       optionSelected(option) {
         this.selected = option.name;
+      },
+      clickBtn() {
+        console.log("clicked")
       }
     }
   }
