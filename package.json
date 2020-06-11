@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "fake_server": " json-server --watch db.json"
+    "json_products": " json-server --watch db.json",
+    "json_images": " json-server --watch carousel.json"
   },
   "dependencies": {
     "axios": "^0.19.2",

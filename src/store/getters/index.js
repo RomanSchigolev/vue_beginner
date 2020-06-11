@@ -4,5 +4,8 @@ export default {
   },
   CART_LIST(state) {
     return state.cart;
+  },
+  IMAGES(state) {
+    return state.images;
   }
 }

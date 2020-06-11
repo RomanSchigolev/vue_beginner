@@ -18,5 +18,6 @@ export default {
   },
   DELETE_ITEM: (state, index) => state.cart.splice(index, 1),
   DECREMENT: (state, index) => --state.cart[index].quantity < 1 && state.cart.splice(index, 1),
-  INCREMENT: (state, index) => state.cart[index].quantity++
+  INCREMENT: (state, index) => state.cart[index].quantity++,
+  SET_IMAGES: (state, images) => state.images = images
 }

@@ -16,6 +16,8 @@
         isIconSetAfter="favorite"
       />
       <p>Кнопка выше была нажата {{counter}} раз</p>
+      <hr />
+      <v-carousel-list :carouselList="IMAGES" />
     </div>
   </section>
 </template>
@@ -24,13 +26,16 @@
 import vSelectWidget from "@/components/Widgets/Select/v-select-widget";
 import vTextField from "@/components/Widgets/Input/v-text-field";
 import vButton from "@/components/Widgets/Button/v-button";
+import vCarouselList from "@/components/Widgets/Carousel/v-carousel-list";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "v-test-page",
   components: {
     vSelectWidget,
     vTextField,
-    vButton
+    vButton,
+    vCarouselList
   },
   data() {
     return {
@@ -48,12 +53,19 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["GET_IMAGES"]),
     optionSelected(option) {
       this.selectedOption = option.country;
     },
     clickBtn() {
       this.counter++;
     }
+  },
+  computed: {
+    ...mapGetters(["IMAGES"])
+  },
+  mounted() {
+    this.GET_IMAGES();
   }
 };
 </script>

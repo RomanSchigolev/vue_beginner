@@ -6,14 +6,15 @@ import apiRequests from "./actions/api_requests";
 import getters from "./getters";
 import mutations from "./mutations";
 
-const actions = {...commonActions, ...apiRequests};
+const actions = { ...commonActions, ...apiRequests };
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: { // состояния(хранятся все данные)
     products: [],
-    cart: []
+    cart: [],
+    images: []
   },
   mutations, // можно менять состояния в state. mutations - синхронны
   actions, // actions - ассинхронны
