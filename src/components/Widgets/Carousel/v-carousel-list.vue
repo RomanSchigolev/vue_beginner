@@ -5,7 +5,7 @@
     </div>
     <div class="section__content">
       <div class="carousel__container">
-        <ul class="carousel__list">
+        <ul class="carousel__list" :style="toMoveSlide">
           <v-carousel-item
             v-for="carouselItem in carouselList"
             :key="carouselItem.id"
@@ -13,8 +13,8 @@
           />
         </ul>
         <div class="carousel__control">
-          <button type="button">Prev</button>
-          <button type="button">Next</button>
+          <button @click="prevSlide" type="button">Prev</button>
+          <button class="carousel__btn--next" @click="nextSlide" type="button">Next</button>
         </div>
       </div>
     </div>
@@ -28,10 +28,35 @@ export default {
   components: {
     vCarouselItem
   },
+  data() {
+    return {
+      currentSlideIndex: 0
+    };
+  },
   props: {
     carouselList: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    prevSlide() {
+      if (this.currentSlideIndex > 0) {
+        this.currentSlideIndex--;
+      }
+    },
+    nextSlide() {
+      const prevBtn = this.$el.querySelector(".carousel__btn--next");
+      this.currentSlideIndex >= this.carouselList.length - 1
+        ? (this.currentSlideIndex = 0)
+        : this.currentSlideIndex++;
+    }
+  },
+  computed: {
+    toMoveSlide() {
+      return {
+        transform: "translateX(-" + this.currentSlideIndex * 100 + "%)"
+      };
     }
   }
 };
@@ -46,6 +71,7 @@ export default {
 
 .carousel__list {
   display: flex;
+  transition: transform 0.4s ease;
 }
 
 .carousel__control {
