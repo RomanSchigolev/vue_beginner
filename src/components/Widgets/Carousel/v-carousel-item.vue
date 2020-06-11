@@ -27,6 +27,7 @@ export default {
 <style lang="scss">
 .carousel__img img {
   display: block;
+  border-radius: 10px;
 }
 
 .carousel__text {

@@ -1,7 +1,7 @@
 <template>
   <article class="section section__carousel">
     <div class="section__title">
-      <h1>Carousel widget</h1>
+      <h1>Carousel-slider widget</h1>
     </div>
     <div class="section__content">
       <div class="carousel__container">
@@ -14,7 +14,7 @@
         </ul>
         <div class="carousel__control">
           <button @click="prevSlide" type="button">Prev</button>
-          <button class="carousel__btn--next" @click="nextSlide" type="button">Next</button>
+          <button @click="nextSlide" type="button">Next</button>
         </div>
       </div>
     </div>

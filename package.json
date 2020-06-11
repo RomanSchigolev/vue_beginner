@@ -5,8 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "json_products": " json-server --watch db.json",
-    "json_images": " json-server --watch carousel.json"
+    "json_products": " json-server --port 3001 --watch db.json",
+    "json_images": " json-server --port 3000 --watch carousel.json"
   },
   "dependencies": {
     "axios": "^0.19.2",
